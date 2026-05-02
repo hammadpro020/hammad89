@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Hammad Ahmed</title>
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%2328a745' /><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='60' fill='white' font-family='sans-serif' font-weight='bold'>HN</text></svg>">
+
+    <!-- SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hammad Ahmed",
+      "url": "https://hammadahmed.com",
+      "jobTitle": "Graphic Designer & UI/UX Expert",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Attock",
+        "addressCountry": "Pakistan"
+      },
+      "email": "hammadgraphics6@gmail.com",
+      "telephone": "+92 340 9825 746",
+      "sameAs": [
+        "https://www.facebook.com/profile.php?id=100081901934027",
+        "https://www.linkedin.com/in/hammad-ahmed-68a1512b5",
+        "https://www.instagram.com/hammadmalik8449",
+        "https://www.behance.net/hammadahmed123",
+        "https://www.fiverr.com/s/AyX7V83"
+      ]
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#28a745',
+                        secondary: '#1e7e34',
+                        dark: '#222',
+                        light: '#f8f9fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+        }
+
+        .section-block {
+            padding: 100px 0;
+        }
+
+        .skill-card {
+            transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(40, 167, 69, 0.4);
+        }
+
+        .badge {
+            background: linear-gradient(135deg, #28a745, #20c997);
+        }
+
+        /* HN Bot Chatbot Styles */
+        .chatbot-icon {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: #28a745;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            animation: pulse 2s infinite;
+        }
+
+        .chatbot-icon i {
+            color: white;
+            font-size: 24px;
+        }
+
+        .chatbot-popup {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1001;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background-color: #28a745;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-header .avatar {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-header .avatar i {
+            color: #28a745;
+            font-size: 20px;
+        }
+
+        .chat-header .info {
+            flex-grow: 1;
+            margin-left: 10px;
+        }
+
+        .chat-header .info h3 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .chat-header .info .status {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .chat-messages {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #f8f9fa;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 10px 15px;
+            margin-bottom: 15px;
+            border-radius: 18px;
+            position: relative;
+            animation: slideIn 0.3s ease;
+        }
+
+        .message-bubble.user {
+            background-color: #28a745;
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-bubble.bot {
+            background-color: #e9ecef;
+            color: #333;
+            margin-right: auto;
+            border-bottom-left-radius: 5px;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 10px 15px;
+            background-color: #f8f9fa;
+        }
+
+        .typing-indicator span {
+            height: 10px;
+            width: 10px;
+            background-color: #6c757d;
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 2px;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-indicator span:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: white;
+            border-top: 1px solid #e9ecef;
+        }
+
+        .chat-input input {
+            flex-grow: 1;
+            padding: 10px 15px;
+            border: 1px solid #e9ecef;
+            border-radius: 20px;
+            outline: none;
+        }
+
+        .chat-input button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes typing {
+
+            0%,
+            60%,
+            100% {
+                transform: translateY(0);
+            }
+
+            30% {
+                transform: translateY(-5px);
+            }
+        }
+
+        /* Tool icon hover effect with green glow */
+        .tool-icon {
+            font-size: 3rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid #e9ecef;
+        }
+
+        .tool-icon:hover {
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+            border-color: #28a745;
+            transform: scale(1.1);
+        }
+
+        /* What I Do section hover effect */
+        .bg-gray-800.rounded-xl.p-8.text-center:hover {
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+            border: 2px solid #28a745;
+            transform: translateY(-5px);
+        }
+
+        /* Experience timeline item hover effect */
+        .timeline-item:hover,
+        .bg-gray-800.rounded-xl.p-8:hover {
+            box-shadow: 0 0 15px rgba(40, 167, 69, 0.7);
+            border-left: 3px solid #28a745;
+            transform: translateX(5px);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="bg-dark py-4 px-6 shadow-lg fixed top-0 w-full z-50">
+        <div class="container mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center space-x-2 group no-underline">
+                <div class="text-2xl font-black tracking-tighter text-white">
+                    <span class="text-primary group-hover:text-white transition-colors duration-300">HN</span>
+                    <span class="text-gray-400 group-hover:text-primary transition-colors duration-300">DESIGNS</span>
+                </div>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="index.html" class="text-gray-300 hover:text-primary transition duration-300">Home</a>
+                <a href="about.html" class="text-primary font-medium">About</a>
+                <a href="certifications.html"
+                    class="text-gray-300 hover:text-primary transition duration-300">Certifications</a>
+                <a href="portfolio.html" class="text-gray-300 hover:text-primary transition duration-300">Portfolio</a>
+                <a href="services.html" class="text-gray-300 hover:text-primary transition duration-300">Services</a>
+                <a href="contact.html" class="text-gray-300 hover:text-primary transition duration-300">Contact</a>
+                <a href="https://www.fiverr.com/s/AyX7V83" target="_blank"
+                    class="bg-primary hover:bg-secondary text-white font-bold py-2 px-6 rounded-full transition duration-300 ml-4">
+                    Hire Me
+                </a>
+            </div>
+            <button class="md:hidden text-white">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6">About <span class="text-primary">Me</span></h1>
+                <p class="text-gray-300 max-w-3xl mx-auto text-lg">
+                    Get to know the person behind the designs and discover my journey as a creative professional.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <div class="rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="image/about-image-1.png" alt="Hammad Ahmed" class="w-full h-auto">
+                    </div>
+                </div>
+
+                <div class="md:w-2/3">
+                    <h2 class="text-3xl font-bold mb-6">I'm Hammad Ahmed, a <span class="text-primary">Graphic
+                            Designer</span> and <span class="text-primary">UI/UX Designer</span> based in Attock.</h2>
+                    <p class="text-gray-300 mb-6">
+                        I've spent the last 1.5 years helping brands communicate their ideas through clear, modern, and
+                        visually strong design.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        I enjoy working on projects that challenge my creativity, whether it's designing a clean
+                        interface, building a brand identity, or crafting visuals for social media.
+                    </p>
+                    <p class="text-gray-300 mb-6">
+                        Design pulled me in early, and over time it turned into something I truly care about. Today, I
+                        work with clients across different industries, helping them tell their stories through visuals
+                        that feel intentional and human.
+                    </p>
+                    <div class="flex flex-wrap gap-4 mt-8">
+                        <a href="index.html#contact" class="btn-primary">Hire Me</a>
+                        <a href="portfolio.html"
+                            class="border-2 border-primary text-primary hover:bg-primary hover:text-white transition duration-300 px-6 py-3 rounded-full font-medium">View
+                            Portfolio</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What I Do Section -->
+    <section class="py-16 px-4 bg-gray-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">What I <span class="text-primary">Do</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    I specialize in creating visually compelling designs that solve real problems and communicate
+                    effectively.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition duration-300">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Graphic Design</h3>
+                    <p class="text-gray-400">
+                        Logos, branding, business cards, social media posts, flyers, thumbnails, and everything that
+                        helps a brand show up professionally.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition duration-300">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-400">
+                        Wireframes, prototypes, mobile app UI, web UI, dashboards, user flows—designs that focus on
+                        clarity, logic, and a smooth user journey.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition duration-300">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-laptop"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Web Design</h3>
+                    <p class="text-gray-400">
+                        Modern, responsive websites built with a clean layout and brand-focused visuals.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-gray-800 rounded-xl p-8 text-center hover:bg-gray-700 transition duration-300">
+                    <div class="text-primary text-5xl mb-6">
+                        <i class="fas fa-hashtag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4">Social Media Content</h3>
+                    <p class="text-gray-400">
+                        Daily posts, ad creatives, carousel designs, and content systems that help creators and
+                        businesses stay consistent.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Experience</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    A journey of continuous learning and professional growth in the design industry.
+                </p>
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-bold mb-2">Freelance Graphic Designer</h3>
+                        <p class="text-primary mb-2">2022 - Present</p>
+                        <p class="text-gray-400">
+                            Worked with more than 50 clients as a social media designer, creating visuals that match
+                            each brand's identity. Currently maintaining an active Instagram design page, H & Z
+                            Graphics, where I share work, experiments, and daily design content.
+                        </p>
+                    </div>
+
+                    <div class="timeline-item">
+                        <h3 class="text-xl font-bold mb-2">UI/UX Designing Virtual Internship</h3>
+                        <p class="text-primary mb-2">DevelopersHub Corporation - 6 Weeks</p>
+                        <p class="text-gray-400">
+                            Recently completed a six-week Virtual Internship in UI/UX Designing at DevelopersHub
+                            Corporation. The program helped me sharpen my design thinking, improve my approach to
+                            problem-solving, and work on real-world UI challenges. I earned an exceptional performance
+                            mention for my commitment, consistency, and the quality of work I delivered throughout the
+                            internship.
+                        </p>
+                    </div>
+
+
+                </div>
+
+                <div class="md:w-1/2">
+                    <div class="bg-gray-800 rounded-xl p-8">
+                        <h3 class="text-2xl font-bold mb-6">My Fiverr Journey</h3>
+                        <p class="text-gray-400 mb-4">
+                            I started my Fiverr journey with simple goals: build trust, understand clients better, and
+                            deliver work that actually helps someone grow. The early days were slow, but each project
+                            pushed me to improve my skills, refine my ideas, and learn how to communicate like a
+                            professional designer.
+                        </p>
+                        <p class="text-gray-400 mb-4">
+                            After some time, I built my UI/UX gig and began getting orders from clients who wanted
+                            clean, practical designs. My account even got unflagged recently after completing three
+                            solid orders, which helped me rebuild momentum with a fresh start.
+                        </p>
+                        <p class="text-gray-400">
+                            Fiverr taught me patience and consistency. It also taught me how important client experience
+                            is—clear communication, fast response, and designs that don't just look good but solve a
+                            real problem.
+                        </p>
+                        <p class="text-gray-400 mt-4">
+                            Today, my Fiverr gig stands as a proof of my work ethic. I'm constantly updating it,
+                            optimizing the visuals, improving descriptions, and adding new services so clients always
+                            know what they can expect from me. Every project there adds something new to my portfolio
+                            and helps me grow as a designer.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-16 px-4 bg-gray-900">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">My <span class="text-primary">Skills</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    A diverse set of abilities and expertise that I've developed over the years.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Graphic Design</span>
+                            <span class="text-primary">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">UI/UX Design</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Branding & Identity</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Web UI</span>
+                            <span class="text-primary">80%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Social Media Design</span>
+                            <span class="text-primary">95%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Thumbnail Design</span>
+                            <span class="text-primary">90%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">Website Handling & SEO</span>
+                            <span class="text-primary">75%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-2">
+                            <span class="font-medium">AI-based Visual Creation</span>
+                            <span class="text-primary">85%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="py-16 px-4">
+        <div class="container mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Tools I <span class="text-primary">Use</span></h2>
+                <p class="text-gray-400 max-w-2xl mx-auto">
+                    The software and tools I rely on to bring creative visions to life.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-8">
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fab fa-figma"></i>
+                    </div>
+                    <h4 class="font-medium">Figma</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fab fa-adobe-photoshop"></i>
+                    </div>
+                    <h4 class="font-medium">Photoshop</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fab fa-adobe-illustrator"></i>
+                    </div>
+                    <h4 class="font-medium">Illustrator</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fab fa-adobe-xd"></i>
+                    </div>
+                    <h4 class="font-medium">XD</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h4 class="font-medium">Canva</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h4 class="font-medium">Axure</h4>
+                </div>
+
+                <div class="text-center">
+                    <div class="tool-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h4 class="font-medium">AI Tools</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Focus Section -->
+    <section class="py-16 px-4 bg-gradient-to-r from-primary to-secondary">
+        <div class="container mx-auto text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">My <span class="text-dark">Focus</span></h2>
+            <div class="max-w-3xl mx-auto">
+                <p class="text-white text-lg mb-8">
+                    I aim to create designs that look clean, feel balanced, and solve real problems. Every project is an
+                    opportunity to bring ideas to life in a way that feels simple, smart, and memorable.
+                </p>
+                <a href="index.html#contact"
+                    class="btn-primary bg-white text-primary hover:bg-transparent hover:text-white">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 px-4 bg-dark border-t border-gray-800">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="image/Orange_Blue_Minimalist_Engineering_Logo__2_-removebg-preview.png" alt="Logo"
+                            class="h-12">
+
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        Transforming ideas into visually stunning realities with passion and precision.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i
+                                class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="index.html#home" class="text-gray-400 hover:text-white transition">Home</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white transition">About</a></li>
+                        <li><a href="index.html#certifications"
+                                class="text-gray-400 hover:text-white transition">Certifications</a></li>
+                        <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition">Portfolio</a>
+                        </li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Services</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">UI/UX Design</a>
+                        </li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Web
+                                Development</a></li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Graphic Design</a>
+                        </li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Brand Design</a>
+                        </li>
+                        <li><a href="services.html" class="text-gray-400 hover:text-white transition">Social Media
+                                Marketing</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white text-lg font-semibold mb-6">Contact Info</h4>
+                    <ul class="space-y-3 text-gray-400">
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3"></i>
+                            <span>Attock, Pakistan</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-phone-alt mr-3"></i>
+                            <span>+92 340 9825 746</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-envelope mr-3"></i>
+                            <span>hammadgraphics6@gmail.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 HN Designs. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+    <script>
+        // Handle Contact link behavior
+        document.addEventListener('DOMContentLoaded', function () {
+            const contactLink = document.querySelector('a[href="contact.html"]');
+
+            contactLink.addEventListener('click', function (e) {
+                // On other pages, navigate to contact.html
+                window.location.href = 'contact.html';
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Graphic Designer Portfolio">
+    <title>Hammad | Graphic Designer</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23ff8c00' rx='20'/><text x='50' y='70' font-family='Arial' font-size='65' font-weight='bold' fill='white' text-anchor='middle'>H</text></svg>">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=Lexend:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome & Material Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .filter-btn.active {
+            background-color: var(--primary-color) !important;
+            color: var(--bg-color) !important;
+        }
+        .portfolio-item-gallery {
+            display: none;
+        }
+        .portfolio-item-gallery.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+
+    <!-- SEO Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Hammad Ahmed",
+      "jobTitle": "Graphic Designer & UI/UX Designer",
+      "url": "https://hammadahmed.com",
+      "image": "https://hammadahmed.com/image/my%20profile.png",
+      "sameAs": [
+        "https://www.linkedin.com/in/hammadahmed-design/",
+        "https://www.instagram.com/design_w_hammad/?hl=en",
+        "https://www.facebook.com/Hammadgraphics1225",
+        "https://www.behance.net/hammadahmed123"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Attock",
+        "addressCountry": "Pakistan"
+      }
+    }
+    </script>
+
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
+
+    <!-- Navbar -->
+    <nav id="mainNav" class="navbar navbar-expand-lg fixed-top">
+        <div class="container navbar-custom">
+            <a class="navbar-brand" href="/" style="font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 800; font-style: italic; color: var(--primary-color);">Hammad Ahmed</a>
+            
+            <div class="d-flex align-items-center order-lg-last">
+                <button class="theme-toggle me-3" id="themeToggle" aria-label="Toggle Theme">
+                    <span class="material-symbols-outlined" id="themeIcon">light_mode</span>
+                </button>
+                <a href="#contact" class="btn btn-primary-custom d-none d-md-inline-block">Hire Me</a>
+                <button class="navbar-toggler ms-2 border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="material-symbols-outlined text-white" style="color: var(--nav-text) !important;">menu</span>
+                </button>
+            </div>
+
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav gap-3">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="services.html">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="portfolio.html">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="certifications.html">Certifications</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section (Kept Original as requested) -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6 z-1">
+                    <div class="badge-custom">AVAILABLE FOR FREELANCE</div>
+                    <h1 class="hero-title">Crafting Visual <span style="color: var(--primary-color);">Masterpieces</span> That Captivate.</h1>
+                    <p class="fs-5 mb-5 opacity-75 hero-desc">I translate complex ideas into bold, striking visuals. From brand identity to stunning illustrations, I make your brand unforgettable.</p>
+                    <div class="d-flex gap-3 flex-wrap hero-buttons">
+                        <a href="portfolio.html" class="btn btn-primary-custom">View My Work</a>
+                        <a href="contact.html" class="btn btn-outline-custom">Hire Me</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 position-relative mt-5 mt-lg-0">
+                    <div class="floating-badge" style="top: 10%; left: -5%;">1k+ TOTAL PROJECTS</div>
+                    <div class="floating-badge dark" style="bottom: 15%; left: 5%;">100+ WORLDWIDE CLIENTS</div>
+                    <div class="hero-img-container">
+                        <img loading="lazy" src="image/my%20profile.png" alt="Hammad Ahmed - Graphic Designer in Attock">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Static Info Bar (Orange Line) -->
+    <div class="info-bar-section py-3" style="background-color: var(--primary-color); border-top: 1px solid var(--text-color); border-bottom: 1px solid var(--text-color);">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <span class="fw-bold text-dark fs-6 d-flex align-items-center gap-2"><i class="material-symbols-outlined fs-5">palette</i> BRAND IDENTITY</span>
+                <span class="fw-bold text-dark fs-6 d-flex align-items-center gap-2"><i class="material-symbols-outlined fs-5">draw</i> ILLUSTRATION</span>
+                <span class="fw-bold text-dark fs-6 d-flex align-items-center gap-2"><i class="material-symbols-outlined fs-5">auto_awesome_mosaic</i> PRINT DESIGN</span>
+                <span class="fw-bold text-dark fs-6 d-flex align-items-center gap-2"><i class="material-symbols-outlined fs-5">text_fields</i> TYPOGRAPHY</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Welcome To My World Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 pb-3" data-aos="fade-up">
+                <p class="section-subtitle">FEATURES</p>
+                <h2 class="section-title">Welcome To My <span class="accent-italic">World</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="glass-card text-center p-4">
+                        <div class="stat-icon mx-auto mb-4"><span class="material-symbols-outlined">lightbulb</span></div>
+                        <h4 class="fw-bold mb-3">Creativity</h4>
+                        <p class="opacity-75">Delivering unique, out-of-the-box creative solutions tailored to elevate your brand's presence.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="glass-card text-center p-4">
+                        <div class="stat-icon mx-auto mb-4"><span class="material-symbols-outlined">verified</span></div>
+                        <h4 class="fw-bold mb-3">Dedication</h4>
+                        <p class="opacity-75">Committed to perfection, ensuring every pixel aligns with your goals and expectations.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="glass-card text-center p-4">
+                        <div class="stat-icon mx-auto mb-4"><span class="material-symbols-outlined">work</span></div>
+                        <h4 class="fw-bold mb-3">Hard Work</h4>
+                        <p class="opacity-75">Putting in the tireless effort required to turn complex ideas into visually stunning realities.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="section-padding" style="background-color: var(--bg-color);">
+        <div class="container">
+            <div class="row g-4 g-lg-5">
+                <!-- Left Column - Profile Card -->
+                <div class="col-md-5 col-lg-4" data-aos="fade-right">
+                    <div class="glass-card rounded-5 shadow p-4 p-lg-5 d-flex flex-column align-items-center text-center h-100" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
+                        <!-- Profile Image Wrapper -->
+                        <div class="position-relative mb-4">
+                            <div class="rounded-circle overflow-hidden shadow-lg mx-auto" style="width: 200px; height: 200px; border: 6px solid var(--surface-color);">
+                                <img loading="lazy" alt="Hammad Ahmed" class="w-100 h-100" style="object-fit: cover; object-position: center top;" src="image/my%20profile.png"/>
+                            </div>
+                        </div>
+                        <!-- Name and Title -->
+                        <div class="mb-4">
+                            <h2 class="fw-bold mb-2" style="font-family: 'Playfair Display', serif;">Hammad Ahmed</h2>
+                            <p class="opacity-75 fw-medium">Graphic Designer</p>
+                        </div>
+                        <!-- Social Icons -->
+                        <div class="d-flex align-items-center gap-3 mt-auto flex-wrap">
+                            <a class="social-icon" href="https://www.linkedin.com/in/hammadahmed-design/" target="_blank" style="width: 45px; height: 45px;">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                            <a class="social-icon" href="https://www.instagram.com/design_w_hammad/?hl=en" target="_blank" style="width: 45px; height: 45px;">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a class="social-icon" href="https://www.facebook.com/Hammadgraphics1225" target="_blank" style="width: 45px; height: 45px;">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a class="social-icon" href="https://www.behance.net/hammadahmed123" target="_blank" style="width: 45px; height: 45px;">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            <a class="social-icon" href="https://wa.me/0340985746" target="_blank" style="width: 45px; height: 45px;">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column - Details Card -->
+                <div class="col-md-7 col-lg-8" data-aos="fade-left">
+                    <div class="glass-card rounded-5 shadow p-4 p-lg-5 h-100 d-flex flex-column" style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05);">
+                        <h2 class="fw-bold mb-4" style="font-family: 'Playfair Display', serif;">Who I Am</h2>
+                        <div class="opacity-75 lh-lg mb-5" style="font-size: 1.1rem;">
+                            <p class="mb-3">
+                                Designing and delivering delightful visual identities, compelling graphics, and production-ready digital assets.
+                            </p>
+                            <p class="mb-0">
+                                Beyond crafting pixels, I explore modern design trends and emerging tools to create smarter, more impactful solutions. I love turning bold ideas into real-world projects that elevate your brand's presence.
+                            </p>
+                        </div>
+                        
+                        <!-- Stats Grid -->
+                        <div class="row g-4 mb-5">
+                            <!-- Stat Item: Experience -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: rgba(255,140,0,0.1); color: var(--primary-color); border-radius: 12px;">
+                                        <span class="material-icons">history</span>
+                                    </div>
+                                    <div>
+                                        <p class="small opacity-50 mb-0 fw-medium">Experience</p>
+                                        <p class="h5 fw-bold mb-0">5+ Years</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Stat Item: Projects -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: rgba(255,140,0,0.1); color: var(--primary-color); border-radius: 12px;">
+                                        <span class="material-icons">folder_special</span>
+                                    </div>
+                                    <div>
+                                        <p class="small opacity-50 mb-0 fw-medium">Projects</p>
+                                        <p class="h5 fw-bold mb-0">1k+ Completed</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Stat Item: Clients -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: rgba(255,140,0,0.1); color: var(--primary-color); border-radius: 12px;">
+                                        <span class="material-icons">public</span>
+                                    </div>
+                                    <div>
+                                        <p class="small opacity-50 mb-0 fw-medium">Clients</p>
+                                        <p class="h5 fw-bold mb-0">100+ Worldwide</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Stat Item: Awards -->
+                            <div class="col-sm-6">
+                                <div class="d-flex align-items-center gap-3">
+                                    <div class="d-flex align-items-center justify-content-center" style="width: 48px; height: 48px; background-color: rgba(255,140,0,0.1); color: var(--primary-color); border-radius: 12px;">
+                                        <span class="material-icons">emoji_events</span>
+                                    </div>
+                                    <div>
+                                        <p class="small opacity-50 mb-0 fw-medium">Quality</p>
+                                        <p class="h5 fw-bold mb-0">Top Rated</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Action Buttons -->
+                        <div class="mt-auto d-flex flex-wrap gap-3">
+                            <a href="/about" class="btn btn-primary-custom d-flex align-items-center gap-2" style="padding: 12px 24px; border-radius: 12px;">
+                                <span class="material-icons">person</span> Read Full Story
+                            </a>
+                            <a href="Hammad_ATS_CV.pdf" download="Hammad_ATS_CV.pdf" class="btn btn-outline-custom d-flex align-items-center gap-2" style="padding: 12px 24px; border-radius: 12px; border: 1px solid var(--border-color);">
+                                <span class="material-icons">download</span> Download CV
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 pb-3">
+                <p class="section-subtitle">WHAT I DO</p>
+                <h2 class="section-title">My <span class="accent-italic">Services</span></h2>
+            </div>
+            
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center p-4">
+                        <div class="service-icon-circle mx-auto"><span class="material-symbols-outlined fs-2">smartphone</span></div>
+                        <h4 class="fw-bold mb-3">Mobile Apps</h4>
+                        <p class="opacity-75 fs-6">Engaging and intuitive mobile application designs.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center p-4">
+                        <div class="service-icon-circle mx-auto"><span class="material-symbols-outlined fs-2">web</span></div>
+                        <h4 class="fw-bold mb-3">UI/UX Design</h4>
+                        <p class="opacity-75 fs-6">User-centric interfaces that offer seamless experiences.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="glass-card text-center p-4">
+                        <div class="service-icon-circle mx-auto"><span class="material-symbols-outlined fs-2">code</span></div>
+                        <h4 class="fw-bold mb-3">Web Development</h4>
+                        <p class="opacity-75 fs-6">Robust and responsive websites tailored to your needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding" style="background-color: var(--surface-color);">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <p class="section-subtitle">EXPERTISE</p>
+                    <h2 class="section-title">My Professional <span>Skills</span></h2>
+                    <p class="opacity-75 fs-5 mb-4">A showcase of my technical proficiency across various industry-standard tools and technologies.</p>
+                </div>
+                <div class="col-lg-6">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>HTML & Javascript & Css</span>
+                            <span>84%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 84%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Filmora & Capcut</span>
+                            <span>90%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Photoshop & Illustrator & Canva</span>
+                            <span>65%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 65%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Axure & Figma</span>
+                            <span>96%</span>
+                        </div>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 96%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 pb-3">
+                <p class="section-subtitle">ACHIEVEMENTS</p>
+                <h2 class="section-title">My <span class="accent-italic">Certifications</span></h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="cert-card">
+                        <div class="cert-badge">2023</div>
+                        <img loading="lazy" src="image/certificates/Soial media marketing .jpg" alt="Certificate" class="w-100">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cert-card">
+                        <div class="cert-badge">2023</div>
+                        <img loading="lazy" src="image/certificates/internship.jpg" alt="Certificate" class="w-100">
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="cert-card">
+                        <div class="cert-badge">2023</div>
+                        <img loading="lazy" src="image/portfolio/bussiness communication  (1).webp" alt="Certificate" class="w-100">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Portfolio Section -->
+    <section class="section-padding" style="background-color: var(--surface-color);">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-end mb-5">
+                <div data-aos="fade-up">
+                    <p class="section-subtitle">VISUALS</p>
+                    <h2 class="section-title">Recent <span class="accent-italic">Projects</span></h2>
+                </div>
+                <a href="/portfolio" class="btn btn-outline-custom d-none d-md-inline-block" data-aos="fade-left">View All Projects</a>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                    <div class="portfolio-item-new mb-0">
+                        <img loading="lazy" src="image/portfolio/amazon listing cover.webp" alt="Amazon Listing Cover">
+                        <div class="portfolio-overlay-new">
+                            <span class="portfolio-overlay-badge">Amazon Listing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                    <div class="portfolio-item-new mb-0">
+                        <img loading="lazy" src="image/portfolio/faceless youtube niche-Recovered.png" alt="YouTube Niche Cover">
+                        <div class="portfolio-overlay-new">
+                            <span class="portfolio-overlay-badge">YouTube Niche</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                    <div class="portfolio-item-new mb-0">
+                        <img loading="lazy" src="image/portfolio/FIVEER gigs image-Recovered.webp" alt="Fiverr Gigs Cover">
+                        <div class="portfolio-overlay-new">
+                            <span class="portfolio-overlay-badge">Fiverr Gigs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4 d-md-none">
+                <a href="/portfolio" class="btn btn-outline-custom">View All Projects</a>
+            </div>
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="https://www.behance.net/hammadahmed123" target="_blank" class="btn btn-primary-custom d-inline-flex align-items-center gap-2" style="padding: 12px 30px; font-size: 1.1rem; font-weight: 600; border-radius: 12px; letter-spacing: 0.5px;">
+                    View More Designs <i class="fab fa-behance fs-4"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="text-center mb-5 pb-3">
+                <p class="section-subtitle">FEEDBACK</p>
+                <h2 class="section-title">Client <span class="accent-italic">Testimonials</span></h2>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="glass-card p-4 p-md-5 position-relative">
+                        <span class="material-symbols-outlined quote-icon" style="position:absolute; top:30px; right:40px; font-size:4rem; color:rgba(255,140,0,0.2);">format_quote</span>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <img loading="lazy" src="image/testimonial/testimonial-author-1.jpg" alt="Client" class="rounded-circle" width="60" height="60" style="object-fit: cover; border: 3px solid var(--primary-color);">
+                            <div>
+                                <h5 class="fw-bold mb-0">Sarah Johnson</h5>
+                                <p class="opacity-50 mb-0">CEO, Lumina Tech</p>
+                            </div>
+                        </div>
+                        <p class="fs-5 opacity-75 fst-italic position-relative z-1">"Hammad transformed our brand identity completely. The new visual language is stunning and has significantly increased our market engagement."</p>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="glass-card p-4 p-md-5 position-relative">
+                        <span class="material-symbols-outlined quote-icon" style="position:absolute; top:30px; right:40px; font-size:4rem; color:rgba(255,140,0,0.2);">format_quote</span>
+                        <div class="d-flex align-items-center gap-3 mb-4">
+                            <img loading="lazy" src="image/testimonial/testimonial-author-2.jpg" alt="Client" class="rounded-circle" width="60" height="60" style="object-fit: cover; border: 3px solid var(--primary-color);">
+                            <div>
+                                <h5 class="fw-bold mb-0">Michael Chen</h5>
+                                <p class="opacity-50 mb-0">Marketing Director</p>
+                            </div>
+                        </div>
+                        <p class="fs-5 opacity-75 fst-italic position-relative z-1">"Working with Hammad was a breeze. He understood our vision perfectly and delivered a social media kit that exceeded all expectations."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners Section -->
+    <section class="section-padding" style="background-color: var(--surface-color);">
+        <div class="container text-center">
+            <p class="section-subtitle mb-4">TRUSTED BY</p>
+            <div class="d-flex justify-content-center align-items-center gap-5 flex-wrap opacity-50">
+                <i class="fa-brands fa-adobe" style="font-size: 3rem;" title="Adobe"></i>
+                <i class="fa-brands fa-figma" style="font-size: 3rem;" title="Figma"></i>
+                <i class="fa-brands fa-google" style="font-size: 3rem;" title="Google"></i>
+                <i class="fa-brands fa-dribbble" style="font-size: 3rem;" title="Dribbble"></i>
+                <i class="fa-brands fa-behance" style="font-size: 3rem;" title="Behance"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-5">
+                    <p class="section-subtitle">GET IN TOUCH</p>
+                    <h2 class="section-title">Contact <span class="accent-italic">Me</span></h2>
+                    <p class="fs-5 opacity-75 mb-5">Have a project in mind? Let's discuss how we can work together to create something amazing.</p>
+                    
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="service-icon-circle me-3 mb-0" style="width:50px; height:50px;"><span class="material-symbols-outlined">location_on</span></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Address</h5>
+                            <p class="opacity-75 mb-0">Near Masjid Bilal, Attock</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-4">
+                        <div class="service-icon-circle me-3 mb-0" style="width:50px; height:50px;"><span class="material-symbols-outlined">call</span></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Phone</h5>
+                            <p class="opacity-75 mb-0">0340 985746</p>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center mb-5">
+                        <div class="service-icon-circle me-3 mb-0" style="width:50px; height:50px;"><span class="material-symbols-outlined">mail</span></div>
+                        <div>
+                            <h5 class="fw-bold mb-1">Email</h5>
+                            <p class="opacity-75 mb-0">hammadahmedgfx18@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <!-- Map Placeholder -->
+                    <div class="w-100 rounded-4 overflow-hidden shadow-sm" style="height: 200px; background-color: #ddd;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106346.78652431675!2d72.2858169!3d33.7661571!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfa73752e2c0ad%3A0xc6822c95e1e12480!2sAttock%2C%20Punjab%2C%20Pakistan!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <form class="glass-card p-4 p-md-5 border-0">
+                        <h3 class="fw-bold mb-4">Send a Message</h3>
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control form-control-glass" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="email" class="form-control form-control-glass" placeholder="Your Email" required>
+                            </div>
+                            <div class="col-12">
+                                <input type="text" class="form-control form-control-glass" placeholder="Subject" required>
+                            </div>
+                            <div class="col-12">
+                                <textarea class="form-control form-control-glass" rows="6" placeholder="Your Message" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary-custom w-100 py-3 mt-2 fs-5 text-dark fw-bold" style="border-radius: 12px;">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5 mt-5" style="border-top: 1px solid var(--border-color); background-color: var(--surface-color);">
+        <div class="container">
+            <div class="row gy-5 mb-5">
+                <div class="col-md-4 text-center text-md-start">
+                    <a href="/" class="fw-bolder fst-italic text-decoration-none d-block mb-4" style="font-size: 2.5rem; color: var(--primary-color); font-family: 'Playfair Display', serif;">Hammad Ahmed.</a>
+                    <p class="opacity-75 mb-4 lh-lg">
+                        Creating exceptional digital experiences through creative design and strategic thinking.
+                    </p>
+                    <div class="d-flex gap-3 justify-content-center justify-content-md-start flex-wrap">
+                        <a href="https://www.linkedin.com/in/hammadahmed-design/" target="_blank" class="d-flex align-items-center justify-content-center rounded-circle text-decoration-none transition-all" style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.05); color: var(--text-color); border: 1px solid var(--border-color);">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/design_w_hammad/?hl=en" target="_blank" class="d-flex align-items-center justify-content-center rounded-circle text-decoration-none transition-all" style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.05); color: var(--text-color); border: 1px solid var(--border-color);">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/Hammadgraphics1225" target="_blank" class="d-flex align-items-center justify-content-center rounded-circle text-decoration-none transition-all" style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.05); color: var(--text-color); border: 1px solid var(--border-color);">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.behance.net/hammadahmed123" target="_blank" class="d-flex align-items-center justify-content-center rounded-circle text-decoration-none transition-all" style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.05); color: var(--text-color); border: 1px solid var(--border-color);">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="https://wa.me/0340985746" target="_blank" class="d-flex align-items-center justify-content-center rounded-circle text-decoration-none transition-all" style="width: 40px; height: 40px; background-color: rgba(255,255,255,0.05); color: var(--text-color); border: 1px solid var(--border-color);">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-md-2 offset-md-1 text-center text-md-start">
+                    <h5 class="fw-bold mb-4" style="font-family: 'Lexend', sans-serif;">Services</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/services" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">UI/UX Design</a></li>
+                        <li><a href="/services" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Graphic Design</a></li>
+                        <li><a href="/services" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Web Development</a></li>
+                        <li><a href="/services" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Branding</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-2 text-center text-md-start">
+                    <h5 class="fw-bold mb-4" style="font-family: 'Lexend', sans-serif;">Quick Links</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li><a href="/" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Home</a></li>
+                        <li><a href="/about" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">About Me</a></li>
+                        <li><a href="/portfolio" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Portfolio</a></li>
+                        <li><a href="/contact" class="text-decoration-none opacity-75 nav-hover" style="color: var(--text-color);">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3 text-center text-md-start">
+                    <h5 class="fw-bold mb-4" style="font-family: 'Lexend', sans-serif;">Contact</h5>
+                    <ul class="list-unstyled d-flex flex-column gap-3 align-items-center align-items-md-start">
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="material-icons text-primary" style="font-size: 1.2rem; margin-top: 2px;">email</span>
+                            <span class="opacity-75">hammadahmedgfx18@gmail.com</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="material-icons text-primary" style="font-size: 1.2rem; margin-top: 2px;">phone</span>
+                            <span class="opacity-75">0340 985746</span>
+                        </li>
+                        <li class="d-flex align-items-start gap-3">
+                            <span class="material-icons text-primary" style="font-size: 1.2rem; margin-top: 2px;">location_on</span>
+                            <span class="opacity-75">Attock, Pakistan</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-top pt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-3" style="border-color: var(--border-color) !important;">
+                <p class="mb-0 opacity-50" style="font-size: 14px;">&copy; 2026 Hammad Graphics. All rights reserved.</p>
+                <p class="mb-0 opacity-50 d-flex align-items-center gap-1" style="font-size: 14px;">Designed with <span class="material-icons text-primary" style="font-size: 14px;">favorite</span> by Hammad Ahmed</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Lightbox Modal -->
+    <div id="lightboxOverlay" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image Preview">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+        <div class="lightbox-img-wrap" id="lightboxImgWrap">
+            <img loading="lazy" id="lightboxImg" src="" alt="Portfolio Image">
+            <span class="lightbox-badge" id="lightboxBadge"></span>
+        </div>
+    </div>
+
+    <!-- AOS Animation JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+    </script>
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+    <script>
+        // Portfolio Filtering Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const galleryItems = document.querySelectorAll('.portfolio-item-gallery');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filterValue = this.getAttribute('data-filter');
+
+                    galleryItems.forEach(item => {
+                        if (filterValue === 'all' || item.classList.contains(filterValue)) {
+                            item.classList.add('show');
+                        } else {
+                            item.classList.remove('show');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", (event) => {
+            gsap.registerPlugin(ScrollTrigger);
+            
+            // Hero Animation
+            gsap.from(".hero-title", {
+                duration: 1.2,
+                y: 50,
+                opacity: 0,
+                ease: "power3.out"
+            });
+            
+            gsap.from(".hero-desc", {
+                duration: 1.2,
+                y: 30,
+                opacity: 0,
+                delay: 0.2,
+                ease: "power3.out"
+            });
+            
+            gsap.from(".hero-buttons", {
+                duration: 1.2,
+                y: 30,
+                opacity: 0,
+                delay: 0.4,
+                ease: "power3.out"
+            });
+            
+            gsap.from(".hero-img-container", {
+                duration: 1.2,
+                x: 50,
+                opacity: 0,
+                delay: 0.3,
+                ease: "power3.out"
+            });
+        });
+    </script>
+
+</body>
+</html>
